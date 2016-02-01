@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Get the prebuilt list of APNs
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
 # Inherit from those products. Most specific first.
 ifneq ($(FERRARI_32_BIT),true)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
@@ -23,9 +26,19 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from ferrari device
 $(call inherit-product, device/xiaomi/ferrari/device.mk)
 
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ferrari
-PRODUCT_NAME := full_ferrari
+PRODUCT_NAME := omni_ferrari
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI 4i
 PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+# Build prop overrides
+PRODUCT_BUILD_PROP_OVERRIDES += \
+TARGET_DEVICE="ferrari" \
+PRODUCT_NAME="ferrari" \
+BUILD_FINGERPRINT="Xiaomi/ferrari/ferrari:6.0.1/MMB29M:userdebug/test-keys" \
+PRIVATE_BUILD_DESC="ferrari-userdebug 6.0.1 MMB29M test-keys"
