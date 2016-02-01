@@ -14,3 +14,4 @@
 # limitations under the License.
 #
 add_lunch_combo omni_ferrari-userdebug
+add_lunch_combo omni_ferrari-eng
