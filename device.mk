@@ -205,6 +205,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8916 \
+    SnapdragonCamera \
+    Snap \
     libboringssl-compat \
     libstlport \
     libmm-qcamera
