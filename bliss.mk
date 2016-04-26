@@ -14,9 +14,7 @@
 
 $(call inherit-product, device/xiaomi/ferrari/full_ferrari.mk)
 
-$(call inherit-product, device/xiaomi/ferrari/op.mk)
-
-# Inherit some common bliss stuff.
+# Inherit some common CM stuff.
 $(call inherit-product, vendor/bliss/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
@@ -32,5 +30,5 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE="ferrari" \
     PRODUCT_NAME="ferrari" \
-    BUILD_FINGERPRINT="Xiaomi/ferrari/ferrari:6.0.1/MMB29M:userdebug/test-keys" \
-    PRIVATE_BUILD_DESC="ferrari-userdebug 6.0.1 MMB29M test-keys"
+    BUILD_FINGERPRINT="Xiaomi/ferrari/ferrari:6.0.1/MHC19s/2705526:userdebug/test-keys" \
+    PRIVATE_BUILD_DESC="ferrari-userdebug 6.0.1 MHC19s 2705526 release-keys"
