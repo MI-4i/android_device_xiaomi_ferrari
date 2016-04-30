@@ -159,7 +159,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 TARGET_USES_LOGD := false
 
 # Malloc
-MALLOC_IMPL := dlmalloc
+# MALLOC_IMPL := dlmalloc
+
+KATI := true
 
 # Compression - Smoosh all the things
 TARGET_TRANSPARENT_COMPRESSION_METHOD := lz4
