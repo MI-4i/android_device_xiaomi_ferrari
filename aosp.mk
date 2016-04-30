@@ -15,11 +15,11 @@
 $(call inherit-product, device/xiaomi/ferrari/full_ferrari.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/bliss/config/common_full_phone.mk)
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ferrari
-PRODUCT_NAME := bliss_ferrari
+PRODUCT_NAME := aosp_ferrari
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI 4i
 PRODUCT_MANUFACTURER := Xiaomi
