@@ -22,6 +22,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from ferrari device
 $(call inherit-product, device/xiaomi/ferrari/device.mk)
+# bliss
+$(call inherit-product, device/xiaomi/ferrari/op.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ferrari
