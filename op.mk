@@ -47,9 +47,3 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 DONT_DEXPREOPT_PREBUILTS := true
-
-# OpenGapps
-GAPPS_VARIANT:= full
-GAPPS_FORCE_PACKAGE_OVERRIDES := true
-GAPPS_FORCE_MATCHING_DPI := true
-$(call inherit-product, vendor/google/build/opengapps-packages.mk)
