@@ -368,3 +368,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.service.adb.enable=1 \
     persist.service.debuggable=1 \
     persist.sys.usb.config=mtp,adb
+    
+# OpenGapps
+GAPPS_VARIANT:= full
+GAPPS_FORCE_PACKAGE_OVERRIDES := true
+GAPPS_FORCE_MATCHING_DPI := true
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
