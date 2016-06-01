@@ -210,7 +210,12 @@ PRODUCT_PACKAGES += \
     sensors.msm8916 \
     libjni_proximityCalibrate \
     ProximityCalibrate \
+    activity_recognition.ferrari \
     libcalmodule_common
+
+# Multi HAL configuration file
+PRODUCT_COPY_FILES += \
+    device/xiaomi/ferrari/hals.conf:system/etc/sensors/hals.conf
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -243,12 +248,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    SnapdragonCamera \
     Snap \
     camera.msm8916 \
     libboringssl-compat \
     libstlport \
     libmm-qcamera
+    
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
 
 # lights
 PRODUCT_PACKAGES += \
