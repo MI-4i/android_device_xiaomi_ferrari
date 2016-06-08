@@ -20,7 +20,7 @@ $(call inherit-product-if-exists, vendor/xiaomi/ferrari/ferrari-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Screen density
-PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_CONFIG := normal 
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Boot animation
@@ -166,7 +166,10 @@ PRODUCT_PACKAGES += \
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
-    libfmjni
+    libfmjni \
+    FMRecord \
+    libqcomfm_jni \
+    qcom.fmradio
 
 # irqbalance
 PRODUCT_COPY_FILES += \
@@ -179,14 +182,45 @@ PRODUCT_PACKAGES += \
 # Power HAL
 PRODUCT_PACKAGES += \
     power.msm8916
+    
+# Qualcomm
+PRODUCT_PACKAGES += \
+    dsi_config.xml \
+    netmgr_config.xml \
+    qmi_config.xml
 
 # RIL
 PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
+    librmnetctl \
     libxml2
+    
+# Sensors
+PRODUCT_PACKAGES += \
+    sensors.msm8916 \
+    libjni_proximityCalibrate \
+    ProximityCalibrate \
+    activity_recognition.ferrari \
+    libcalmodule_common
+
+# Multi HAL configuration file
+PRODUCT_COPY_FILES += \
+    device/xiaomi/ferrari/sensor/hals.conf:system/etc/sensors/hals.conf
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8916
+    gps.msm8916 \
+    libloc_adapter \
+    libloc_eng \
+    libloc_api_v02 \
+    libloc_ds_api \
+    libloc_core \
+    libizat_core \
+    libgeofence \
+    libgps.utils \
+    flp.msm8916 \
+    liblbs_core \
+    flp.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
@@ -204,10 +238,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    Snap \
     camera.msm8916 \
     libboringssl-compat \
     libstlport \
     libmm-qcamera
+    
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
 
 # lights
 PRODUCT_PACKAGES += \
@@ -269,6 +308,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
@@ -327,3 +367,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.service.adb.enable=1 \
     persist.service.debuggable=1 \
     persist.sys.usb.config=mtp,adb
+    
+# OpenGapps
+GAPPS_VARIANT:= full
+GAPPS_FORCE_PACKAGE_OVERRIDES := true
+GAPPS_FORCE_MATCHING_DPI := true
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
