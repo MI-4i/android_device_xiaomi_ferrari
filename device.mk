@@ -19,6 +19,16 @@ $(call inherit-product-if-exists, vendor/xiaomi/ferrari/ferrari-vendor.mk)
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# Keyhandler
+PRODUCT_PACKAGES += \
+    ConfigPanel \
+    com.cyanogenmod.keyhandler
+
+PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
+
+# never dexopt the keyhandler
+$(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
+
 # Screen density
 PRODUCT_AAPT_CONFIG := normal 
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -203,9 +213,6 @@ PRODUCT_PACKAGES += \
     activity_recognition.ferrari \
     libcalmodule_common
 
-# Multi HAL configuration file
-PRODUCT_COPY_FILES += \
-    device/xiaomi/ferrari/sensor/hals.conf:system/etc/sensors/hals.conf
 
 # GPS
 PRODUCT_PACKAGES += \
